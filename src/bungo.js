@@ -104,7 +104,8 @@ const UserInput = () => {
 
         axios(config)
             .then(function (response) {
-                console.log(JSON.stringify(response.data));
+                const allInventoryItems = response.data.Repsonse.profileInventory['data']['items'];
+                console.log(allInventoryItems);
             })
             .catch(function (error) {
                 console.log(error);
