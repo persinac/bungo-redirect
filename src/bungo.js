@@ -87,12 +87,12 @@ const UserInput = () => {
         };
 
         const res = await axios(config);
-        setMemberType('3');
-        setMemberId('4611686018471219555')
+        setMemberType(res.data.Response.destinyMemberships[0].membershipType);
+        setMemberId(res.data.Response.destinyMemberships[0].membershipId)
         console.log(res)
     }
 
-    const getUserInv = async () => {
+    const getUserInv = () => {
         var config = {
             method: 'get',
             url: 'https://www.bungie.net/Platform/Destiny2/' + memershipType + '/Profile/' + membershipId + '/?components=102',
