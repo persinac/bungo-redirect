@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from "react";
 import ButtonComponent from "./components/general/Button";
 import { v4 as uuidv4 } from 'uuid';
-import axios from 'axios'
+import axios from 'axios';
+const qs = require('qs')
 
 /**
  * Useful links:
@@ -54,23 +55,13 @@ const UserInput = () => {
     }
 
     const getToken = async () => {
-        console.log({
-            client_id: '39340',
-            grant_type: 'authorization_code',
-            code: authCode
-        });
-        console.log({
-            client_id: 39340,
-            grant_type: 'authorization_code',
-            code: authCode
-        });
         const res = await axios.post(
             'https://www.bungie.net/platform/app/oauth/token/',
-            {
-                client_id: '39340',
+            qs.stringify({
+                client_id: 39340,
                 grant_type: 'authorization_code',
                 code: authCode
-            },
+            }),
             {
                 headers: {
                     'X-API-KEY': 'a13c1aa6c60c44129469453f9513a412',

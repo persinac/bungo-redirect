@@ -13,7 +13,8 @@
     "react-bootstrap": "latest",
     "bootstrap": "latest",
     "uuid": "latest",
-    "axios": "latest"
+    "axios": "latest",
+    "qs": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
