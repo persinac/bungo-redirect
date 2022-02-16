@@ -50,7 +50,7 @@ const UserInput = () => {
     }
 
     const reauth = () => {
-        window.location.href = bungo_link + uuidState + 'reauth=true';
+        window.location.href = bungo_link + uuidState + '&reauth=true';
     }
 
     const getToken = async () => {
@@ -63,7 +63,7 @@ const UserInput = () => {
             },
             {
                 headers: {
-                    'X-API-KEY': '',
+                    'X-API-KEY': 'a13c1aa6c60c44129469453f9513a412',
                     'content-type': 'application/x-www-form-urlencoded'
                 }
             }
