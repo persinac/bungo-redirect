@@ -54,19 +54,21 @@ const UserInput = () => {
     }
 
     const getToken = async () => {
-        const res = await axios.post('https://www.bungie.net/platform/app/oauth/token/')
-        // set headers
-        // - X-API-KEY -> <api_key>
-        // - content-type -> application/x-www-form-urlencoded
-
-        /*
-        Body:
-            client_id: 39340
-            grant_type: authorization_code
-            code: auth_code
-         */
-        let hintArray = [];
-        res.data.map((a) => hintArray.push(a.name))
+        const res = await axios.post(
+            'https://www.bungie.net/platform/app/oauth/token/',
+            {
+                client_id: 39340,
+                grant_type: 'authorization_code',
+                code: authCode
+            },
+            {
+                headers: {
+                    'X-API-KEY': '',
+                    'content-type': 'application/x-www-form-urlencoded'
+                }
+            }
+        )
+        console.log(res);
     }
 
     return (
@@ -76,10 +78,15 @@ const UserInput = () => {
             <ButtonComponent onClickFunction={getToken} label={"Get Token"}/>
             <ButtonComponent onClickFunction={testing} label={"Test"}/>
             <div>
-                {authCode}
-            </div>
-            <div>
-                {uuidState}
+                <p>
+                    Auth Code: {authCode}
+                </p>
+                <p>
+                    Token: {authCode}
+                </p>
+                <p>
+                    UUID State: {uuidState}
+                </p>
             </div>
         </div>
     )
