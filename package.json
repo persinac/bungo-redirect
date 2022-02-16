@@ -12,7 +12,8 @@
     "web-vitals": "^2.1.4",
     "react-bootstrap": "latest",
     "bootstrap": "latest",
-    "uuid": "latest"
+    "uuid": "latest",
+    "axios": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
