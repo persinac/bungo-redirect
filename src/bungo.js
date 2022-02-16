@@ -55,20 +55,21 @@ const UserInput = () => {
     }
 
     const getToken = async () => {
-        const res = await axios.post(
-            'https://www.bungie.net/platform/app/oauth/token/',
-            qs.stringify({
-                client_id: 39340,
-                grant_type: 'authorization_code',
-                code: authCode
-            }),
-            {
-                headers: {
-                    'X-API-KEY': 'a13c1aa6c60c44129469453f9513a412',
-                    'content-type': 'application/x-www-form-urlencoded'
-                }
-            }
-        );
+        const data = qs.stringify({
+            'client_id': '39340',
+            'grant_type': 'authorization_code',
+            'code': authCode
+        });
+        const config = {
+            method: 'post',
+            url: 'https://www.bungie.net/platform/app/oauth/token/',
+            headers: {
+                'x-api-key': 'a13c1aa6c60c44129469453f9513a412',
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            data : data
+        }
+        const res = await axios(config);
         console.log(res);
     }
 
