@@ -54,10 +54,20 @@ const UserInput = () => {
     }
 
     const getToken = async () => {
+        console.log({
+            client_id: '39340',
+            grant_type: 'authorization_code',
+            code: authCode
+        });
+        console.log({
+            client_id: 39340,
+            grant_type: 'authorization_code',
+            code: authCode
+        });
         const res = await axios.post(
             'https://www.bungie.net/platform/app/oauth/token/',
             {
-                client_id: 39340,
+                client_id: '39340',
                 grant_type: 'authorization_code',
                 code: authCode
             },
@@ -67,7 +77,7 @@ const UserInput = () => {
                     'content-type': 'application/x-www-form-urlencoded'
                 }
             }
-        )
+        );
         console.log(res);
     }
 
